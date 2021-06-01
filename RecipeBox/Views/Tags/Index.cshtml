@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@using RecipeBox.Models;
+@model IEnumerable<RecipeBox.Models.Tag>
+
+<h1>Recipe Tags for @User.Identity.Name</h1>
+
+@if (Model.Any())
+{
+  <ul>
+  <h4>Tags:</h4>
+  @foreach (Tag tag in Model)
+    {
+      <li>@Html.ActionLink($"{tag.TagName}", "Details", new {id = tag.TagId })</li>
+    }
+  </ul>
+}
+else
+{
+  <h3>No Tags have been added yet for this user</h3>
+}
+<div class="footer">
+  <p>@Html.ActionLink("Add new tag", "Create")</p>
+  <p>@Html.ActionLink("Home", "Index", "Home")</p>
+</div>

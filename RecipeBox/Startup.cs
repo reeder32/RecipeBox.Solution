@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
-using RecipBox.Models;
+using RecipeBox.Models;
 
 namespace RecipeBox
 {
@@ -33,7 +33,7 @@ namespace RecipeBox
       .AddEntityFrameworkStores<RecipeBoxContext>()
       .AddDefaultTokenProviders();
       
-       services.Configure<IdentityOptions>(options =>
+      services.Configure<IdentityOptions>(options =>
     {
         options.Password.RequireDigit = false;
         options.Password.RequiredLength = 0;
@@ -51,6 +51,8 @@ namespace RecipeBox
       app.UseAuthentication();
 
       app.UseRouting();
+
+      app.UseAuthorization();
 
       app.UseEndpoints(routes =>
       {
