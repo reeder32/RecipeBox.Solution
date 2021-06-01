@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace RecipeBox.Models
 {
-  public class RecipeBoxContext : DbContext
+  public class RecipeBoxContext :  IdentityDbContext<ApplicationUser>
   {
   
    public virtual DbSet<Tag> Tags { get; set; }

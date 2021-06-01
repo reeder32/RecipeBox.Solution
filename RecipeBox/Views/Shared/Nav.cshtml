@@ -1,0 +1,12 @@
+@using System.Security.Claims
+
+<div class="navbar">
+  @if (User.Identity.IsAuthenticated)
+  {
+    <p>Hello @User.Identity.Name!</p>
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+      <input type="submit" class="btn btn-default" value="Log out" />
+    }
+  }
+</div>
