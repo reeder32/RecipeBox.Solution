@@ -9,7 +9,7 @@
 @if (User.Identity.IsAuthenticated)
 {
   <p>Hello @User.Identity.Name!</p>
-  //user photos,
+  @* user photos *@
   <p>@Html.ActionLink("Home", "Index", "Home")</p>
 }
 else
