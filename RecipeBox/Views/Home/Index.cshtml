@@ -1,7 +1,39 @@
 @{
   Layout = "_Layout";
 }
+@using RecipeBox.Models
 
 <h1>Welcome to the Recipe Box!</h1>
-<p>@Html.ActionLink("See all Recipes", "Index", "Recipes")</p>
-<p>@Html.ActionLink("See all Tags", "Index", "Tags")</p>
+<h2>Recipes</h2>
+
+@if (@Model["recipes"].Count == 0)
+  {
+    @Html.ActionLink("Add new Recipe", "Create", "Recipes")
+  }
+else
+{
+    <ul>
+      @foreach (Recipe r in @Model["recipes"])
+      {
+        @Html.ActionLink($"{r.RecipeName}", "Details", "Recipes", new {id = r.RecipeId} )
+      }
+    </ul>
+}
+ <h2>Tags</h2>
+@if (@Model["tags"].Count == 0)
+  {
+    @Html.ActionLink("Add new Tag", "Create", "Tags")
+  }
+else
+  {
+
+   
+    <ul>
+      @foreach (Tag t in @Model["tags"])
+      {
+       @Html.ActionLink($"{t.TagName}", "Details", "Tags", new {id = t.TagId} )
+      }
+    </ul>
+  }
+<!-- <p>@Html.ActionLink("See all Recipes", "Index", "Recipes")</p>
+<p>@Html.ActionLink("See all Tags", "Index", "Tags")</p> -->
