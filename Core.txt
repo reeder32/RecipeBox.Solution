@@ -1,0 +1,10 @@
+1. first page: 
+  * latest recipes names
+  * images should be added to main page as well
+  * tags that users look through - (these should already be showing without clicking a link)
+
+  * have navbar at the top to login or create an account
+
+
+  * each webpage should have a home button/user information display/and logout button
+

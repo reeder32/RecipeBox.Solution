@@ -1,12 +1,56 @@
 @using System.Security.Claims
 
-<div class="navbar">
-  @if (User.Identity.IsAuthenticated)
-  {
-    <p>Hello @User.Identity.Name!</p>
-    @using (Html.BeginForm("LogOff", "Account"))
-    {
-      <input type="submit" class="btn btn-default" value="Log out" />
-    }
-  }
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="row">
+    <div class="col-6">
+      <p>@Html.ActionLink("Home", "Index", "Home")</p>
+    </div>
+    <div class="col-6 collapse navbar-collapse" id="navbarNavDropdown">
+      @if (User.Identity.IsAuthenticated)
+      {
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @User.Identity.Name
+            </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item nav-item" href="#">Action</a>
+                <a class="dropdown-item">
+                  @using (Html.BeginForm("LogOff", "Account"))
+                  {
+
+                    <input type="submit" class="btn btn-default" value="Log out" />
+                  }
+                </a>
+              </div>
+          </li>
+        </ul>
+      } else {
+        <p>@Html.ActionLink("Create an account", "Index", "Account")</p>
+      }
+    </div>
+</nav>
+
+<!-- 
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light"></nav>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav> -->
+
+
+
+

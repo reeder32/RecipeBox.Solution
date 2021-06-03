@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
+using System.IO;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 using RecipeBox.Models;
 
